@@ -1,0 +1,39 @@
+{
+  "name": "python-comment-hover",
+  "displayName": "Python Comment Hover",
+  "description": "Show comments from the actual Python symbol definition using Pylance navigation.",
+  "version": "0.1.0",
+  "publisher": "local-tools",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:python"
+  ],
+  "main": "./extension.js",
+  "extensionDependencies": [
+    "ms-python.vscode-pylance"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjxcn/python-comment-hover.git"
+  },
+  "homepage": "https://github.com/mjxcn/python-comment-hover#readme",
+  "bugs": {
+    "url": "https://github.com/mjxcn/python-comment-hover/issues"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "package": "npx @vscode/vsce package"
+  },
+  "files": [
+    "extension.js",
+    "comments.js",
+    "README.md",
+    "LICENSE"
+  ]
+}

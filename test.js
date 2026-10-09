@@ -1,0 +1,10 @@
+const assert = require('node:assert/strict');
+const {extract} = require('./comments');
+assert.equal(extract(['def f():','    # 第一作用域','    x = 1','    return x'],2,'x'),'第一作用域');
+assert.equal(extract(['# 其他变量','other = 1','x = 2'],2,'x'),'');
+assert.equal(extract(['def f():','    x: int = 1','    """局部变量说明。"""'],1,'x'),'局部变量说明。');
+assert.equal(extract(['    # 保存用户','    def save(self):'],1,'save'),'保存用户');
+assert.equal(extract(['# 危险链接 [点我](command:evil)','x = 1'],1,'x'),'危险链接 [点我](command:evil)');
+assert.equal(extract(['# foo','return x'],1,'x'),'');
+assert.equal(extract(['# noqa','x = 1'],1,'x'),'');
+console.log('7 comment extraction checks passed');
